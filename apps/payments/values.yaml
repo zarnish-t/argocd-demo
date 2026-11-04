@@ -1,0 +1,6 @@
+image:
+  repository: ghcr.io/stefanprodan/podinfo
+  tag: "6.5.0"
+replicaCount: 1
+message: "payments service"
+cronSchedule: "*/10 * * * *"

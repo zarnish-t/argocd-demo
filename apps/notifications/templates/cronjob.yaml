@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-report
+spec:
+  schedule: {{ .Values.cronSchedule | quote }}
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: report
+              image: busybox:1.36
+              command: ["sh", "-c", "date; echo {{ .Release.Name }} report done"]

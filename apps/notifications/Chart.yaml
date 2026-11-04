@@ -1,0 +1,5 @@
+apiVersion: v2
+name: notifications
+description: Dummy notifications service for the Argo CD demo
+type: application
+version: 0.1.0
